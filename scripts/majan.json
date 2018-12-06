@@ -1,0 +1,38 @@
+{	"staff_code" : "COS-251", 
+    "name": "Ramachandra Pujari",
+    "department" : "Mine",
+	"designation" : "Foreman",
+    "date of joining" : new Date("2016-04-01"),
+    "dob": new Date("1984-03-07"), 
+	"nationality" : "Indian",
+	"reporting" : "Operations Head/Asst. Manager",
+	"phone_number": 97679022,
+	"email_address": "rama@gmail.com",
+	"civil" : {
+		"id" : 106101376,
+		"issue_date": new Date("2016-04-01"),
+		"expiry_date": new Date("2018-04-01")
+		},
+    "visa": {
+        "profession": "Diesel Eng. Mechanic",
+        "clearance": "33739/15",
+        "issue_date": new Date("2016-04-01"),
+        "expiry_date": new Date("2018-04-01"),
+		},
+	"passport":{
+		"number" : "N5770163",
+		"original" : "yes",
+		"expiry_date" : new Date("2025-12-30")		
+	},
+	"license": {
+		"number" : null,
+		"expiry_date" : null
+	},
+	"salary": {
+		"basic" : 245,
+		"fa" : 20,
+		"hra" : null,
+		"sa" : 45,
+		"other" : 45,
+	}
+}
