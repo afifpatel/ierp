@@ -79,7 +79,7 @@ loadData(){
             response.json().then(data => {
             console.log("total count of recordsssss :",data._metadata.total_count);
             data.records.forEach( employee => {
-                console.log("Employee fetched isss  ===>", employee)
+                // console.log("Employee fetched isss  ===>", employee)
                 // employee.dob=employee.dob != null ? new Date(employee.dob) : null;
                 // employee.doj=employee.doj != null ? new Date(employee.doj) : null;
                 // employee.dot=employee.dot != null ? new Date(employee.dot) : null;
@@ -107,11 +107,11 @@ loadData(){
 
 
 render(){
-    console.log("Issue List", this.state.employee)
+    // console.log("Issue List", this.state.employee)
     const query = parse(this.props.location.search);
-    console.log("query --->", query )
+    // console.log("query --->", query )
     query.staff_code_number ? (query.staff_code_number=Number(query.staff_code_number)) :''
-    console.log("query --->", query )
+    // console.log("query --->", query )
     
     return(
         <div className="content"> 

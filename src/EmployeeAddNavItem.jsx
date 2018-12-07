@@ -101,13 +101,13 @@ class EmployeeAddNavItem extends React.Component {
     }
 
     componentDidMount(){
-        console.log("fetching existing employees to avoid staff code duplications")
+        // console.log("fetching existing employees to avoid staff code duplications")
         fetch(`/api/employee_add${this.props.location.search}`).then(response =>{
             if(response.ok){
                 response.json().then(data => {
-                console.log("total count of recordsssss :",data._metadata.total_count);
+                // console.log("total count of recordsssss :",data._metadata.total_count);
                 data.records.forEach( employee => {
-                    console.log("Employee fetched isss  ===>", employee)
+                    // console.log("Employee fetched isss  ===>", employee)
                     employee.dob=employee.dob != null ? new Date(employee.dob) : null;
                     employee.doj=employee.doj != null ? new Date(employee.doj) : null;
                     employee.dot=employee.dot != null ? new Date(employee.dot) : null;
@@ -149,9 +149,9 @@ class EmployeeAddNavItem extends React.Component {
         //check for staff code duplicates
         const duplicate_id = EmployeeValid.checkDuplicates(newEmployee, db_employees)
         
-        console.log("In submit after duplicate validation function" ,duplicate_id)
+        // console.log("In submit after duplicate validation function" ,duplicate_id)
         if (duplicate_id == true){
-            console.log("Ready to change id state to true" ,duplicate_id)
+            // console.log("Ready to change id state to true" ,duplicate_id)
             this.setState({duplicate_id : true})
             return;
         }
@@ -180,7 +180,7 @@ class EmployeeAddNavItem extends React.Component {
 
         newEmployee.leave.last_date = leave_last_date.slice();
 
-        console.log("New employee prepared for fetch ", newEmployee)
+        // console.log("New employee prepared for fetch ", newEmployee)
 
 
         fetch('/api/employee_add', {
@@ -189,9 +189,9 @@ class EmployeeAddNavItem extends React.Component {
             body: JSON.stringify(newEmployee),
         }).then(response => {
             if (response.ok) {
-                console.log("response is ok")
+                // console.log("response is ok")
                 response.json().then(AddedEmployee => {
-                console.log("Added employee ", AddedEmployee)
+                // console.log("Added employee ", AddedEmployee)
                 
                 // this.props.history.push(`/employees/${AddedEmployee.new_employee._id}`);
                 this.props.history.push(`/employees`);
@@ -240,7 +240,7 @@ class EmployeeAddNavItem extends React.Component {
         else if (e.target.name.includes("salary")){
             switch(e.target.name){
                 case "salary_basic":{
-                    console.log("Onchange Salary basic")
+                    // console.log("Onchange Salary basic")
                     employee.salary.basic=value;
                     const total =employee.salary.basic + employee.salary.fa + employee.salary.hra + employee.salary.other + employee.salary.sa + employee.salary.ta + employee.salary.uaw + employee.salary.uae;
                     employee.salary.total = Math.round(total*1000)/1000
@@ -395,13 +395,13 @@ class EmployeeAddNavItem extends React.Component {
             
             employee[e.target.name] = value;
         }
-        console.log("employeee new value :", employee)
+        // console.log("employeee new value :", employee)
         this.setState({ employee })
     }
 
 onSelect(selectedOption){
         const employee = Object.assign({}, this.state.employee);
-        console.log('Selected option ---> ', selectedOption);
+        // console.log('Selected option ---> ', selectedOption);
         const value = selectedOption === null ? '' : selectedOption;
         employee.reporting=value;
         this.setState({ employee });
@@ -409,8 +409,8 @@ onSelect(selectedOption){
       }
 
     render() {
-        console.log("state------> ",this.state)
-        console.log("emptyFields------> ",this.state.emptyFields)
+        // console.log("state------> ",this.state)
+        // console.log("emptyFields------> ",this.state.emptyFields)
 
        
         const employee = this.state.employee;
@@ -629,7 +629,7 @@ onSelect(selectedOption){
                                     onChange={this.onChange}
                                 >
                                     <option value="default">Select sponsor status</option>
-                                    <option value="cos">Majan Staff</option>
+                                    <option value="cos">Company Staff</option>
                                     <option value="oos">Omani Staff</option>
                                     <option value="nos">Contractor</option>
                                 </FormControl>
@@ -698,7 +698,7 @@ onSelect(selectedOption){
                                     </FormGroup>  
                                         {/* {this.state.emptyFields.reporing? <HelpBlock>This field is required.</HelpBlock> :''}  */}
                                     <FormGroup validationState={this.state.invalidFields.dot ? 'error' : null}>
-                                    <Col componentClass={ControlLabel} sm={3}>Majan Visa Transfer Date</Col>
+                                    <Col componentClass={ControlLabel} sm={3}>Visa Transfer Date</Col>
                                         <Col sm={8}>
                                             <FormControl
                                                 componentClass={DateInput} name="dot" value={employee.dot} onChange={this.onChange}

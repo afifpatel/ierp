@@ -9,30 +9,19 @@ class Footer extends Component {
                     <nav className="pull-left">
                         <ul>
                             <li>
-                                <a href="/">
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
-                                    Company
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/">
+                                <a href="http://afifpatel.website/">
                                     Portfolio
                                 </a>
                             </li>
                             <li>
-                                <a href="/">
-                                   Blog
+                                <a href="https://www.linkedin.com/in/afifpatel/">
+                                   LinkedIn
                                 </a>
                             </li>
                         </ul>
                     </nav>
-                    <p className="copyright pull-right">
-                        &copy; {(new Date()).getFullYear()} <a href="https://www.linkedin.com/in/afifpatel/">Afif Patel</a>, a product by Salalah International Connections Co.
-                    </p>
+                    <p className="copyright pull-right" >
+                        &copy; {(new Date()).getFullYear()} Afif Patel. All Rights Reserved.</p>
                 </Grid>
             </footer>
 		);

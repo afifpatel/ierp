@@ -32,6 +32,7 @@ import Reports from './Reports/Reports.jsx';
 import Renewals from './Reports/Renewals.jsx';
 import Leave from './Reports/Leave.jsx';
 import Payroll from './Reports/Payroll.jsx';
+import NotFound from './NotFound.jsx';
 
 
 
@@ -83,11 +84,13 @@ render(){
                 <Route exact path="/reports/renewals" component={withRouter(Renewals)} />
                 <Route exact path="/reports/leave" component={withRouter(Leave)} />
                 <Route exact path="/reports/payroll" component={withRouter(Payroll)} />
-                <Route exact path="/accounts" component={withRouter(Accounts)} />
-                {/* <Route exact path="/accounts/payroll" component={withRouter(Payroll)} /> */}
                 <Route exact path="/reports/payroll/:id" component={withRouter(PayrollEdit)} />
-                <Route exact path="/fleet" component={withRouter(Fleet)} />
-                <Route exact path="/fleet/addVehicle" component={withRouter(AddVehicle)} />
+
+                <Route exact path="/accounts" component={withRouter(NotFound)} />
+                <Route exact path="/fleet" component={withRouter(NotFound)} />
+                <Route exact path="/shipment" component={withRouter(NotFound)} />
+
+                {/* <Route exact path="/fleet/addVehicle" component={withRouter(AddVehicle)} /> */}
 
                 {/* <Route exact path="/reports" component={NoMatch} />  */}
                 {/* <Route exact path="/login" component={LoginPage} />  */}

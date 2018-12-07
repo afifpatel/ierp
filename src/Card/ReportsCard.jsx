@@ -30,22 +30,22 @@ export default class ReportsCard extends React.Component{
 
     componentWillReceiveProps(nextProps){
             if(nextProps.content !== this.props.content){
-                console.log("cwrp", nextProps, this.props)
+                // console.log("cwrp", nextProps, this.props)
 
                 this.setState({employee:nextProps.content});
             }
         }
     
     onClick(){
-        console.log("this state", this.state.employee)
+        // console.log("this state", this.state.employee)
 
         var tbl  = document.getElementById('table-to-xls');
 
-        console.log("table ", tbl)
+        // console.log("table ", tbl)
 
         const ws = XLSX.utils.table_to_sheet(tbl, {raw : true});
         
-        console.log("tablw sheet", ws)
+        // console.log("tablw sheet", ws)
 
         const wb = XLSX.utils.book_new();
         XLSX.utils.book_append_sheet(wb, ws, "RenewalWB");
@@ -55,7 +55,7 @@ export default class ReportsCard extends React.Component{
 
     render(){
 
-        console.log("Content" , this.props)
+        // console.log("Content" , this.props)
         return(
 
             <div id="report_card" className={"card" + (this.props.plain ? " card-plain": "")} >

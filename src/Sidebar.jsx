@@ -28,7 +28,7 @@ export default class Sidebar extends React.Component{
                     <div className="sidebar-background" style={sidebarBackground}></div>
                     <div className="logo">
                         <div className="title-text">
-                            Majan Mining
+                            iERP
                         </div>                    
                     </div>
                     <div className="sidebar-wrapper">

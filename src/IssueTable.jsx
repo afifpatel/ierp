@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 function pad(num, size) {
     var s = "000000000" + num;
-    console.log("Substring ", s.substr(s.length-size))
+    // console.log("Substring ", s.substr(s.length-size))
     return s.substr(s.length-size);
 }
 
@@ -28,16 +28,16 @@ function daysBetween( date1, date2 ) {
 
  function calLeaveSalary(employee){
 
-    console.log("calLeaveSalary ", employee)
+    // console.log("calLeaveSalary ", employee)
 
    const days = daysBetween(employee.leave.last_date, new Date()) 
-    console.log(" Days in between ", days)
+    // console.log(" Days in between ", days)
 
    const rate = days*30/365 
-   console.log(" Proportionate rate ", rate)
+//    console.log(" Proportionate rate ", rate)
 
    const leave_salary = employee.salary.total/30 * rate
-   console.log(" Leave Salary ", rate)
+//    console.log(" Leave Salary ", rate)
 
     return Math.round(leave_salary);
 
@@ -80,7 +80,7 @@ export default class IssueTable extends React.Component{
 
     componentWillReceiveProps(nextProps){
             if(nextProps.issues_props !== this.props.issues_props){
-                console.log("cwrp", nextProps, this.props)
+                // console.log("cwrp", nextProps, this.props)
 
                 this.setState({employee:nextProps.issues_props});
             }
@@ -88,11 +88,11 @@ export default class IssueTable extends React.Component{
 
     render(){
     // console.log("IssueTable ...", this.state.employee[0])
-        console.log("Windows url", window.location.pathname)
+        // console.log("Windows url", window.location.pathname)
 
 
     if(this.state.employee && window.location.pathname === '/reports/renewals') { 
-        console.log("Employee")
+        // console.log("Employee")
         const issueRows= this.state.employee.map( i => <IssueRow key={i._id} row_value={i} />)
         return(
             <div>
@@ -117,7 +117,7 @@ export default class IssueTable extends React.Component{
 
     else if(this.state.employee && window.location.pathname === '/reports/leave')
     {
-        console.log("Leave ", this.state.employee)
+        // console.log("Leave ", this.state.employee)
         const issueRows= this.state.employee.map( i => <LeaveIssueRow key={i._id} row_value={i} />)
         return(
             <div>
@@ -155,7 +155,7 @@ export default class IssueTable extends React.Component{
         )
     }
     else if(this.state.employee && window.location.pathname === '/reports/payroll'){
-        console.log("Payroll ", this.state.employee)
+        // console.log("Payroll ", this.state.employee)
         const issueRows= this.state.employee.map( i => <PayrollIssueRow key={i._id} row_value={i} />)
         return(
             
@@ -209,7 +209,7 @@ export default class IssueTable extends React.Component{
 
     else if(this.state.employee && window.location.pathname === '/employees')
     {
-        console.log("Employees List")
+        // console.log("Employees List")
         const issueRows= this.state.employee.map( i => <EmployeesIssueRow key={i._id} row_value={i} />)
         return(
                 <Table id="table-to-xls" striped hover>
@@ -242,7 +242,7 @@ export default class IssueTable extends React.Component{
 }
 
 const IssueRow = (props) => {
-    console.log("Each row ", props )
+    // console.log("Each row ", props )
     return(
     <tr>
     <td>{props.row_value.staff_code_type}-{props.row_value.staff_code_number}</td>
@@ -256,7 +256,7 @@ const IssueRow = (props) => {
 };
 
 const LeaveIssueRow = (props) => {
-    console.log("Row value", props.row_value)
+    // console.log("Row value", props.row_value)
     return(
     <tr>
     <td>{props.row_value.staff_code_type}-{props.row_value.staff_code_number}</td>

@@ -36,7 +36,7 @@ export default class Dashboard extends React.Component{
     }
 
     render() {
-        console.log("Dashboarddddddddddddd renderingggggggggggg...............")
+        // console.log("Dashboarddddddddddddd renderingggggggggggg...............")
         return (
            <div className="content">
                 <Grid fluid>
@@ -99,7 +99,7 @@ export default class Dashboard extends React.Component{
                             <Card
                                 statsIcon="fa fa-history"
                                 id="chartHours"
-                                title="Majan Performance Chart"
+                                title="Performance Chart"
                                 category="Yearly behaviour"
                                 stats="Updated 3 minutes ago"
                                 content={

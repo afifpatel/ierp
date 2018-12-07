@@ -86,12 +86,12 @@ export default class Renewals extends React.Component {
             if(response.ok){
                 var new_data = [];
                 response.json().then(data => {
-                console.log("total count of recordsssss :",data._metadata.total_count);
+                // console.log("total count of recordsssss :",data._metadata.total_count);
                 data.records.forEach( employee => {
-                    console.log("Employee fetched isss  ===>", employee)
+                    // console.log("Employee fetched isss  ===>", employee)
                     if(employee.civil.expiry_date == null && employee.visa.expiry_date == null && employee.passport.expiry_date == null )
                     {
-                        console.log("All null")
+                        // console.log("All null")
                     }
                     else{
                     employee.civil.expiry_date=employee.civil.expiry_date != null ? new Date(employee.civil.expiry_date) : null;
@@ -119,11 +119,11 @@ export default class Renewals extends React.Component {
 
     
     render(){
-        console.log("Issue List", this.state.employee)
+        // console.log("Issue List", this.state.employee)
         const query = parse(this.props.location.search);
-        console.log("query --->", query )
+        // console.log("query --->", query )
         query.staff_code_number ? (query.staff_code_number=Number(query.staff_code_number)) :''
-        console.log("query --->", query )
+        // console.log("query --->", query )
 
         return (
         <div className="content"> 

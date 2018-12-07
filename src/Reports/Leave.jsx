@@ -43,7 +43,7 @@ function daysBetween( date1, date2 ) {
   }
 
   function calc_LLD(type,date){
-    console.log("calccccccccccccc lld", type, date)
+    // console.log("calccccccccccccc lld", type, date)
 
     let day = date.getDate() ;
     let month = date.getMonth()+1;
@@ -54,7 +54,7 @@ function daysBetween( date1, date2 ) {
     const by_2 = yrs_1/2
     const yrs_2 = Math.round(by_2)
     
-    console.log("yrsssssssss", yrs_1, yrs_2,current_year)
+    // console.log("yrsssssssss", yrs_1, yrs_2,current_year)
 
     if(type == 1){
         if(year + 1 >= current_year)
@@ -64,7 +64,7 @@ function daysBetween( date1, date2 ) {
             year++;
         }
         let lld = new Date(year-1, month - 1, day-1);
-        console.log("type 1 lld", lld, year-1)
+        // console.log("type 1 lld", lld, year-1)
         return lld
     }
     else{
@@ -74,7 +74,7 @@ function daysBetween( date1, date2 ) {
             year=year+2;
         }
         let lld = new Date(year-2, month - 1, day-1);
-        console.log("type 2 lld", lld,year-2)
+        // console.log("type 2 lld", lld,year-2)
         return lld;
     }
 }
@@ -138,7 +138,7 @@ export default class Leave extends React.Component {
                 response.json().then(data => {
                 console.log("total count of recordsssss :",data._metadata.total_count);
                 data.records.forEach( employee => {
-                    console.log("Employee payrolllll  fetched isss  ===>", employee)
+                    // console.log("Employee payrolllll  fetched isss  ===>", employee)
                     employee.doj=employee.doj != null ? new Date(employee.doj) : null;
                     // const last_date = employee.leave.last_date[employee.leave.last_date.length -1]
                     // console.log("LEAVE LAST Date  ===>", last_date)
@@ -170,12 +170,12 @@ export default class Leave extends React.Component {
 
     
     render(){
-        console.log("Issue List", this.state.employee)
-        console.log("Issue List", this.state.employee)
+        // console.log("Issue List", this.state.employee)
+        // console.log("Issue List", this.state.employee)
         const query = parse(this.props.location.search);
-        console.log("query --->", query )
+        // console.log("query --->", query )
         query.staff_code_number ? (query.staff_code_number=Number(query.staff_code_number)) :''
-        console.log("query --->", query )
+        // console.log("query --->", query )
         return (
         <div className="content"> 
         <Grid fluid>

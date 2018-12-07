@@ -476,7 +476,7 @@ var dataPie = {
     series: [60, 10, 22]
 };
 var legendPie = {
-    names: ["Majan Sponsor ","Omani ","Contractors"],
+    names: ["Sponsor ","Omani ","Contractors"],
     types: ["info","danger","warning"]
 };
 

@@ -149,7 +149,7 @@ export default class EmployeeFilter extends React.Component{
         // if(this.state.effort_gte) newFilter.effort_gte = this.state.effort_gte;
         // if(this.state.effort_lte) newFilter.effort_lte = this.state.effort_lte;
         // if(this.state.owner) newFilter.owner = this.state.owner;
-        console.log(newFilter);
+        // console.log(newFilter);
         this.props.setFilter(newFilter);
     }
     clearFilter() {
@@ -166,7 +166,7 @@ render(){
                         componentClass="select" value={this.state.staff_code_type} onChange={this.onChangeStaffCode}
                     >
                         <option value="">(Any)</option>
-                        <option value="cos">Majan Staff</option>
+                        <option value="cos">Company Staff</option>
                         <option value="oos">Omani Staff</option>
                         <option value="nos">Contractor</option>
                     </FormControl>

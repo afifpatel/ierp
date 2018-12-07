@@ -17,7 +17,7 @@ export default class NumInput extends React.Component {
     }
 
     onBlur(e){
-               console.log("In onBlur state => ", this.state.value);
+            //    console.log("In onBlur state => ", this.state.value);
 
         this.props.onChange(e,this.unformat(this.state.value));
         

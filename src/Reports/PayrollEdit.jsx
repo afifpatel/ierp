@@ -142,7 +142,7 @@ loadData(){
               employee.visa.issue_date=employee.visa.issue_date != null ? new Date(employee.visa.issue_date) : null;
               employee.visa.expiry_date=employee.visa.expiry_date != null ? new Date(employee.visa.expiry_date) : null;
 
-              console.log("employee to add to state --->", employee)
+            //   console.log("employee to add to state --->", employee)
                 this.setState({ employee });
             });
         } else {
@@ -170,7 +170,7 @@ submit(e){
     const employee = this.state.employee;
     // const newPayroll = this.state.payroll;
     const payroll = this.state.payroll;
-    console.log("Submit", this.state)
+    // console.log("Submit", this.state)
 
 
     if( payroll.month == 'default'){
@@ -186,7 +186,7 @@ submit(e){
     }
 
     if(payroll.attendance > this.getNoDays(payroll.month)){
-        console.log("Exceeded");
+        // console.log("Exceeded");
         this.setState({ invalidFields : Object.assign({},this.state.invalidFields,{attendance : 'exceeded'})})
         this.showError('Attendance exceeds the number of days in a month')
         return;
@@ -199,23 +199,23 @@ submit(e){
         //   doj : employee.doj, account_number : employee.bank.acct
         });
 
-    console.log("employee state at submit ", employee_reqd_fields)
+    // console.log("employee state at submit ", employee_reqd_fields)
     var net = payroll.salary.total + payroll.overtime + payroll.trip_allowance + payroll.arrears +payroll.si +payroll.bonus - payroll.deduction.phone - payroll.deduction.mess - payroll.deduction.penalty - payroll.deduction.advance;
     var basic= 0;
     var insurance = 0;
-    console.log("employeeeeeeeeeeeeeee", employee)
+    // console.log("employeeeeeeeeeeeeeee", employee)
 
     if( employee.staff_code_type === "oos"){ ///For omani
-        console.log("Omaniiii", employee)
+        // console.log("Omaniiii", employee)
         basic = employee.salary.total;
         insurance = Math.round(0.07*basic*1000)/1000;
         net = Math.round((net - insurance)*1000)/1000;
     }
 
-    console.log("employee net at submit ", net)
+    // console.log("employee net at submit ", net)
     const final_payroll = Object.assign({}, employee_reqd_fields, this.state.payroll)
     const payroll_net= Object.assign({},final_payroll, {net_salary : net, social_insurance : { basic : basic , rate : insurance } })
-    console.log("payroll state at submit ", payroll_net)
+    // console.log("payroll state at submit ", payroll_net)
    
     fetch('/api/reports/payroll_edit', {
         method: 'POST',
@@ -223,9 +223,9 @@ submit(e){
         body: JSON.stringify(payroll_net),
     }).then(response => {
         if (response.ok) {
-            console.log("response is ok")
+            // console.log("response is ok")
             response.json().then(new_payroll => {
-            console.log("Added Payroll ", new_payroll)
+            // console.log("Added Payroll ", new_payroll)
         });
         } else {
             response.json().then(error => {
@@ -241,7 +241,7 @@ submit(e){
 }
 
 onChange(e,convvertedValue){
-    console.log("in Parent's OnChange ... event.target.value  and  convertedValue", e.target.value,convvertedValue)        
+    // console.log("in Parent's OnChange ... event.target.value  and  convertedValue", e.target.value,convvertedValue)        
     const payroll = Object.assign({}, this.state.payroll);
     const value = (convvertedValue !== undefined) ? convvertedValue :e.target.value;
     if(e.target.name.includes("deduction")){
@@ -268,12 +268,12 @@ onChange(e,convvertedValue){
     { 
         payroll[e.target.name] = value;
         if(e.target.name === 'attendance'){
-            console.log("Attendance Change", this.state.invalidFields)
+            // console.log("Attendance Change", this.state.invalidFields)
             this.state.invalidFields.attendance != ''  ? this.setState({invalidFields : Object.assign({},this.state.invalidFields,{attendance : ''})}): '';
         }
 
         if(e.target.name === 'month'){
-            console.log("Month Change", this.state.invalidFields)
+            // console.log("Month Change", this.state.invalidFields)
             this.state.invalidFields.month != ''  ? this.setState({invalidFields : Object.assign({}, this.state.invalidFields, {month : ''})}): '';
         }
 
@@ -333,7 +333,7 @@ getNoDays(month){
 salaryCalculate(salary, value, target_name){
     // console.log("salary ", (salary*this.state.payroll.attendance)/this.getNoDays(this.state.payroll.month))
     const new_salary = Object.assign({}, salary);
-    console.log("Original Salary ", new_salary)
+    // console.log("Original Salary ", new_salary)
     // console.log("Attendance ", attendance)
 
     var num_of_days = 0;
@@ -395,12 +395,12 @@ getOverTimeRate(basic, days, rate){
 }
 
 getOverTime(basic, days, rate,hours, target_name){
-    console.log("basic, days, rate,hours, target_name ", basic, days, rate,hours, target_name)
+    // console.log("basic, days, rate,hours, target_name ", basic, days, rate,hours, target_name)
 
     // const rate_calculated = Math.round(((basic/days)/9)*rate);
     var rate_calculated = this.getOverTimeRate(basic, days, rate)
 
-    console.log("rate calculated ", rate_calculated)
+    // console.log("rate calculated ", rate_calculated)
 
     var overtime =0;
 
@@ -409,7 +409,7 @@ getOverTime(basic, days, rate,hours, target_name){
     // const payroll = Object.assign({}, this.state.payroll);
     // payroll.ot = overtime;
     // this.setState({ payroll });
-    console.log("overtime ", overtime)
+    // console.log("overtime ", overtime)
 
     return Math.round(overtime*1000)/1000;
 
@@ -437,7 +437,7 @@ getSingleTripRate(trips){
         object[n2] = 3.5,
 
         sum = sum + n1*1.5 + n2*3.5
-        console.log("object and sum", object, sum)
+        // console.log("object and sum", object, sum)
         // return object;
         return sum;
     }
@@ -452,7 +452,7 @@ getSingleTripRate(trips){
 
         sum = sum + n1*1.5 + n2*3.5 + n3*6.5
 
-        console.log("object  and sum", object, sum)
+        // console.log("object  and sum", object, sum)
         // return object;
 
         return sum;
@@ -513,7 +513,7 @@ render(){
 
     const employee = this.state.employee;
     const payroll = this.state.payroll;
-    console.log("render invalid state", this.state.invalidFields)
+    // console.log("render invalid state", this.state.invalidFields)
 
 
     return(

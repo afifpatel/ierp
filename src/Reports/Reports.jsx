@@ -147,7 +147,7 @@ export default class Reports extends React.Component{
                              <Card
                                  statsIcon="fa fa-history"
                                  id="chartHours"
-                                 title="Majan Performance Chart"
+                                 title="Performance Chart"
                                  category="Yearly behaviour"
                                  stats="Updated 3 minutes ago"
                                  content={

@@ -68,18 +68,18 @@ export default class HeaderLinks extends React.Component{
                     // </NavItem> 
                     :
                     ""}
-                    {(window.location.pathname.includes('accounts') )? 
+                    {/* {(window.location.pathname.includes('accounts') )? 
                         <LinkContainer to="/accounts/payroll" >
                             <NavItem eventKey={1}>Payroll</NavItem>
                         </LinkContainer>
                     :
-                    ""}
-                     {(window.location.pathname.includes('fleet') )? 
+                    ""} */}
+                     {/* {(window.location.pathname.includes('fleet') )? 
                         <LinkContainer to="/fleet/addVehicle" >
                             <NavItem eventKey={1}>Add Vehicle</NavItem>
                         </LinkContainer>
                     :
-                    ""}
+                    ""} */}
                     {(window.location.pathname.includes('reports') )? 
                     // <NavItem eventKey={1}>
                     <Nav>

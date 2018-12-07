@@ -32,7 +32,7 @@ export default function App(props) {
 //    console.log("isLoogenIn : ", props.isLoggedIn);
 
    return(
-        <div className="wrapper">
+        <div className="wrap">
             {/* {props.isLoggedIn ? <Sidebar /> : <div />} */}
             <Sidebar />
             <div className="main-panel" id="main-panel">
