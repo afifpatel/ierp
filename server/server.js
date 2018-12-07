@@ -6,7 +6,6 @@ import 'babel-polyfill';
 import SourceMapSupport from 'source-map-support';   //To let Node.js report line numbers by using source maps, we need to install thesource-map-support module, and also call the library in the application once
 SourceMapSupport.install();
 import Validator from 'validator';
-import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import  qs from 'query-string';
 import path from 'path';
