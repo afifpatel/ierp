@@ -10,13 +10,7 @@ import imagine from '../static/sidebar2.jpg';
 
 export default class Sidebar extends React.Component{
 
-    render(){           //"url(images/8336c4e99f1e8bddccb1aeef2fb7cea4-sidebar2.jpg)"
-                        //"url(images/8336c4e99f1e8bddccb1aeef2fb7cea4-sidebar2.jpg)"
-                       // "url(images/8336c4e99f1e8bddccb1aeef2fb7cea4-sidebar2.jpg)"
-//<Image className="sidebarBackground" src="./sidebar2.jpg" />
-                        //"url(images/8336c4e99f1e8bddccb1aeef2fb7cea4-sidebar2.jpg)"
-        // const url_elements = window.location.pathname.split('/');
-        // console.log("Windows url path", url_elements);
+    render(){          
 
         const sidebarBackground = {
             backgroundImage: 'url(http://localhost:8000/' + imagine + ')'

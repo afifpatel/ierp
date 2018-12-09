@@ -24,10 +24,6 @@ var _validator = require('validator');
 
 var _validator2 = _interopRequireDefault(_validator);
 
-var _bcrypt = require('bcrypt');
-
-var _bcrypt2 = _interopRequireDefault(_bcrypt);
-
 var _jsonwebtoken = require('jsonwebtoken');
 
 var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
