@@ -5,8 +5,8 @@ iERP is a web application developed to serve the ERP needs of an organization.
 Key Features :
 - Dashboard with data visualization, statistics, task manager.
 - Employee managment module - Add/Delete/Edit staff information of the organization.
-- HR module - automated scheduled calculation and generation of reports of salary, gratuity, leave salary, bonus and much more. 
-- Reporting module - automated daily statements generated and presented in a tabular structure, ready to export to csv or print.
+- HR module - automated scheduled calculation and generation of reports of salary, gratuity, leave salary, bonus etc.. 
+- Reporting module - nice tabular representation of reports generated daily that are ready to be exported as csv or print.
 - Accounting, Fleet, Shipment modules are not available for demo purposes.
 
 ## Getting Started
